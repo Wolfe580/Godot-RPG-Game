@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://8n2texpdg7ij"]
+
+[ext_resource type="Script" path="res://Resources/WeaponResource.gd" id="1_msmmp"]
+
+[resource]
+script = ExtResource("1_msmmp")
+type = 0
+ammo = ""
+cooldown = 0.2
+sway = 0.15
+automatic = false
+onehanded = true
+attack_sounds = Array[AudioStream]([])
+damage = 0
+spread = 0.0
+max_ammo = 0
+projectile_amount = 1
+projectile_range = 40

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://dyrlva6hh5f5t"]
+
+[ext_resource type="Script" path="res://Resources/WeaponResource.gd" id="1_fkuo6"]
+
+[resource]
+script = ExtResource("1_fkuo6")
+type = 0
+ammo = ""
+cooldown = 0.2
+sway = 0.15
+automatic = false
+attack_sounds = Array[AudioStream]([])
+damage = 0
+spread = 0.0
+max_mag = 0
+projectile_amount = 1
+projectile_range = 40

@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgs2d0ny4wxfc"]
+
+[ext_resource type="PackedScene" uid="uid://bpv72ygnecvt0" path="res://scene/world_environment.tscn" id="1_f7nh1"]
+[ext_resource type="PackedScene" uid="uid://cacqvwr8ykrs2" path="res://assets/HumanCharacter/character_body_3d.tscn" id="2_mmg5a"]
+[ext_resource type="PackedScene" uid="uid://bb801seohbgi4" path="res://scene/boxes.tscn" id="2_t7evh"]
+[ext_resource type="Script" path="res://assets/HumanCharacter/character_body_3d.gd" id="3_wljnd"]
+[ext_resource type="PackedScene" uid="uid://bgmrm3isk5lle" path="res://scene/floor.tscn" id="4_apwab"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4m74d"]
+albedo_color = Color(0.823529, 1, 1, 1)
+
+[node name="Game" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.637077, 0, 0)
+
+[node name="Floor" parent="." instance=ExtResource("4_apwab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.179719, -0.498222, -7.31892)
+use_collision = true
+size = Vector3(11.4767, 0, 18.0616)
+material = SubResource("StandardMaterial3D_4m74d")
+
+[node name="Floor" parent="Floor" instance=ExtResource("4_apwab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21033, -5.047, 11.3204)
+use_collision = true
+size = Vector3(11.4767, 0, 18.0616)
+material = SubResource("StandardMaterial3D_4m74d")
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("1_f7nh1")]
+
+[node name="Boxes" parent="." instance=ExtResource("2_t7evh")]
+transform = Transform3D(1.19871, 0, 0, 0, 1, 0, 0, 0, 1, 0.856154, 0.204896, -4.10933)
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_mmg5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.378046, 0.0661989, 0)
+script = ExtResource("3_wljnd")

@@ -1,5 +1,16 @@
 extends CharacterBody3D
 class_name Player
+const WeaponSystem = preload("res://Systems/weapon_system.gd")
+
+#System Nodes
+@onready var weapon: Node = $WeaponSystem
+
+#Character Type
+@export_category("Character Type")
+@export var ishuman : bool = true
+@export var isfriend : bool = false
+@export var isenemy: bool = false
+
 
 #Character - Movement
 @export_category("Player Movement - Horizontal")
@@ -135,10 +146,11 @@ var reputation_with_Damnonii_min : float = -100
 
 #Player Weapons
 @export_category("Player Weapon")
-@export var current_weapon : Weapon
+@onready var projectile_raycast: RayCast3D = $Head/Hand/Projectile_RayCast3D
+@export var current_weapon : Weapon = UNARMED
 var can_attack: bool = true
 var is_reloading: bool= false
-#var current_ammo: int = current_weapon.max_ammo - currently throws an error as no weapon initialised (I think?)
+var current_ammo: int = current_weapon.max_ammo
 var hurt_tween : Tween
 
 const BOW = preload("res://Resources/Weapons/Bow.tres")
@@ -170,7 +182,6 @@ func _ready():
 	lamp.hide()
 	damage_overlay.modulate = Color.TRANSPARENT
 	health_bar.init_health(health)
-
 #Capturing Player input
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
@@ -214,6 +225,24 @@ func CameraLook(Movement: Vector2):
 
 #Player movement and jumping
 func _physics_process(delta: float) -> void:
+	#Gun Logic - may be better to move this elsewhere?
+	if Input.is_action_just_pressed("inventory_slot_1"):
+		current_weapon = UNARMED
+	if Input.is_action_just_pressed("inventory_slot_2"):
+		current_weapon = SWORD
+	if Input.is_action_just_pressed("inventory_slot_3"):
+		current_weapon = CROSSBOW
+	if Input.is_action_just_pressed("inventory_slot_4"):
+		current_weapon = DAGGER
+	#Semi-Automatic
+	if Input.is_action_just_pressed("Attack") and current_weapon.automatic == false: #Add in menu check here once menus have been established.
+		print(current_weapon)
+		weapon.shoot()
+	#Automatic - unlikely to be used outside of melee's unless I add in something like repeater crossbow?
+	if Input.is_action_just_pressed("Attack") and current_weapon.automatic == true:
+		print(current_weapon)
+		weapon.shoot()
+		
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -267,3 +296,4 @@ func hurt(damage : float):
 	
 	
 	
+#Player fire

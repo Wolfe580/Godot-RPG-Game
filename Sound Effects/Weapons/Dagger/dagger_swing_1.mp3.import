@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://gmajpq02nbd5"
+path="res://.godot/imported/dagger_swing_1.mp3-e73b69eca0fcc9206462f6d25177de19.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/Weapons/Dagger/dagger_swing_1.mp3"
+dest_files=["res://.godot/imported/dagger_swing_1.mp3-e73b69eca0fcc9206462f6d25177de19.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

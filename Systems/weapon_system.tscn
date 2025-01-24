@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://bdsd1vly3qm0f"]
+[gd_scene load_steps=2 format=3 uid="uid://bdsd1vly3qm0f"]
+
+[ext_resource type="Script" path="res://Systems/weapon_system.gd" id="1_ff1ie"]
 
 [node name="WeaponSystem" type="Node"]
+script = ExtResource("1_ff1ie")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

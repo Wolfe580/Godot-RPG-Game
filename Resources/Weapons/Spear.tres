@@ -1,17 +1,21 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://3buk3ed37udj"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://3buk3ed37udj"]
 
 [ext_resource type="Script" path="res://Resources/WeaponResource.gd" id="1_6g5jv"]
+[ext_resource type="AudioStream" uid="uid://bhfrnspjnsw64" path="res://Sound Effects/Weapons/Unarmed/melee_swing_1.ogg" id="1_s0yrr"]
 
 [resource]
 script = ExtResource("1_6g5jv")
-type = 0
+type = 6
 ammo = ""
-cooldown = 0.2
+cooldown = 0.4
 sway = 0.15
-automatic = false
+ismelee = true
+automatic = true
+onehanded = true
 attack_sounds = Array[AudioStream]([])
-damage = 0
+dry_fire_sound = ExtResource("1_s0yrr")
+damage = 30
 spread = 0.0
-max_mag = 0
+max_ammo = 0
 projectile_amount = 1
-projectile_range = 40
+projectile_range = 15

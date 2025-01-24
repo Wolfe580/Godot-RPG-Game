@@ -1,17 +1,21 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://bqnfyuq3vw6o3"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://bqnfyuq3vw6o3"]
 
+[ext_resource type="AudioStream" uid="uid://cfnja0kdfk7lg" path="res://Sound Effects/Weapons/Sling/sling_fire_1.mp3" id="1_hguek"]
 [ext_resource type="Script" path="res://Resources/WeaponResource.gd" id="1_i8j76"]
 
 [resource]
 script = ExtResource("1_i8j76")
-type = 0
-ammo = ""
-cooldown = 0.2
+type = 5
+ammo = "10"
+cooldown = 0.1
 sway = 0.15
-automatic = false
-attack_sounds = Array[AudioStream]([])
-damage = 0
+ismelee = false
+automatic = true
+onehanded = true
+attack_sounds = Array[AudioStream]([ExtResource("1_hguek")])
+dry_fire_sound = ExtResource("1_hguek")
+damage = 10
 spread = 0.0
-max_mag = 0
+max_ammo = 100
 projectile_amount = 1
 projectile_range = 40

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://tl7kvp8204ni"
+path="res://.godot/imported/melee_swing_2.mp3-a5f18b152bd502aeb1ae46c528958a57.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/Weapons/Unarmed/melee_swing_2.mp3"
+dest_files=["res://.godot/imported/melee_swing_2.mp3-a5f18b152bd502aeb1ae46c528958a57.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

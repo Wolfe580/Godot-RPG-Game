@@ -1,17 +1,22 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://boifxe83oba47"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://boifxe83oba47"]
 
+[ext_resource type="AudioStream" uid="uid://dk3uk4oq3sppv" path="res://Sound Effects/Weapons/Warhammer/Warhammer_swing_1.mp3" id="1_ny5lu"]
 [ext_resource type="Script" path="res://Resources/WeaponResource.gd" id="1_rxk7s"]
+[ext_resource type="AudioStream" uid="uid://c6jcek52eywt6" path="res://Sound Effects/Weapons/Warhammer/Warhammer_swing_2.mp3" id="2_h0pe6"]
 
 [resource]
 script = ExtResource("1_rxk7s")
-type = 0
+type = 7
 ammo = ""
-cooldown = 0.2
+cooldown = 0.7
 sway = 0.15
-automatic = false
-attack_sounds = Array[AudioStream]([])
-damage = 0
+ismelee = true
+automatic = true
+onehanded = false
+attack_sounds = Array[AudioStream]([ExtResource("1_ny5lu"), ExtResource("2_h0pe6")])
+dry_fire_sound = ExtResource("1_ny5lu")
+damage = 60
 spread = 0.0
-max_mag = 0
+max_ammo = 0
 projectile_amount = 1
-projectile_range = 40
+projectile_range = 10

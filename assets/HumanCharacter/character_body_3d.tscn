@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cacqvwr8ykrs2"]
+[gd_scene load_steps=10 format=3 uid="uid://cacqvwr8ykrs2"]
 
 [ext_resource type="PackedScene" uid="uid://cgb86xrkco4su" path="res://assets/Models/MCModel1.gltf" id="1_xkjre"]
 [ext_resource type="PackedScene" uid="uid://bdsd1vly3qm0f" path="res://Systems/weapon_system.tscn" id="2_i4bkh"]
-[ext_resource type="Script" path="res://Systems/weapon_system.gd" id="3_5ntwy"]
 [ext_resource type="Texture2D" uid="uid://dk1i4qfg6t185" path="res://assets/HumanCharacter/Pain Hud.png" id="4_07fvs"]
 [ext_resource type="Script" path="res://assets/HumanCharacter/health_bar.gd" id="5_xm1ci"]
 
@@ -26,9 +25,6 @@ bg_color = Color(0.788995, 0.0158887, 0.545835, 1)
 
 [node name="MCModel1" parent="." instance=ExtResource("1_xkjre")]
 
-[node name="WeaponSystem" parent="MCModel1" instance=ExtResource("2_i4bkh")]
-script = ExtResource("3_5ntwy")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0546418, 0.965719, 0.155156)
 shape = SubResource("ConvexPolygonShape3D_rwspy")
@@ -39,6 +35,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15592, 1.67593, -0.20013)
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.314983, 0.0798335, -0.0699839)
 
+[node name="Hand" type="Node3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.289751, -0.19348, -0.945887)
+
+[node name="Projectile_RayCast3D" type="RayCast3D" parent="Head/Hand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.445671, -1.48245, 1.14602)
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Head/Hand"]
+
 [node name="CharacterLamp" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.747311, 0.664474, 0, -0.664474, 0.747311, 0.481701, 0.705527, -0.172166)
 spot_angle = 43.29
@@ -48,6 +52,21 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 scale = Vector2(0.599995, 0.602372)
 texture = ExtResource("4_07fvs")
+
+[node name="AmmoBar" type="ProgressBar" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 867.0
+offset_top = -50.9999
+offset_right = 907.0
+offset_bottom = -10.9999
+grow_vertical = 0
+scale = Vector2(6.9519, 0.944176)
+theme_override_styles/background = SubResource("StyleBoxEmpty_675k2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jitn7")
+value = 100.0
+show_percentage = false
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 anchors_preset = 2
@@ -79,5 +98,8 @@ show_percentage = false
 [node name="Timer" type="Timer" parent="HealthBar"]
 wait_time = 0.2
 one_shot = true
+
+[node name="WeaponSystem" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("2_i4bkh")]
+parent = NodePath("..")
 
 [connection signal="timeout" from="HealthBar/Timer" to="HealthBar" method="_on_timer_timeout"]

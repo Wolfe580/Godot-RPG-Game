@@ -1,17 +1,22 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://buirqvca0ai85"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://buirqvca0ai85"]
 
 [ext_resource type="Script" path="res://Resources/WeaponResource.gd" id="1_thufn"]
+[ext_resource type="AudioStream" uid="uid://cqpjyy4lopdyt" path="res://Sound Effects/Weapons/Axe/axe_swing_1.mp3" id="1_yh582"]
+[ext_resource type="AudioStream" uid="uid://cwu6yy5cp8o1i" path="res://Sound Effects/Weapons/Axe/axe_swing_2.mp3" id="2_jngk6"]
 
 [resource]
 script = ExtResource("1_thufn")
-type = 0
-ammo = ""
-cooldown = 0.2
+type = 1
+ammo = "1"
+cooldown = 0.4
 sway = 0.15
-automatic = false
-attack_sounds = Array[AudioStream]([])
-damage = 0
+ismelee = true
+automatic = true
+onehanded = true
+attack_sounds = Array[AudioStream]([ExtResource("1_yh582"), ExtResource("2_jngk6")])
+dry_fire_sound = ExtResource("2_jngk6")
+damage = 25
 spread = 0.0
-max_mag = 0
+max_ammo = 0
 projectile_amount = 1
-projectile_range = 40
+projectile_range = 5

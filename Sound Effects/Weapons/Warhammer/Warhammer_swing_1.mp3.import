@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dk3uk4oq3sppv"
+path="res://.godot/imported/Warhammer_swing_1.mp3-27a824d4a3a9b3dd035bf781ac4f030a.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/Weapons/Warhammer/Warhammer_swing_1.mp3"
+dest_files=["res://.godot/imported/Warhammer_swing_1.mp3-27a824d4a3a9b3dd035bf781ac4f030a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

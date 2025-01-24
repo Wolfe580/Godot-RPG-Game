@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://7pnjrsguikd6"
+path="res://.godot/imported/spear_stab_1.mp3-7ba62269f9615e7fbab012f15b81b089.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/Weapons/Spear/spear_stab_1.mp3"
+dest_files=["res://.godot/imported/spear_stab_1.mp3-7ba62269f9615e7fbab012f15b81b089.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

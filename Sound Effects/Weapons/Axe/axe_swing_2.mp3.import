@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cwu6yy5cp8o1i"
+path="res://.godot/imported/axe_swing_2.mp3-7663d6e6c8b8de2d40e0ed9a6caf7361.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/Weapons/Axe/axe_swing_2.mp3"
+dest_files=["res://.godot/imported/axe_swing_2.mp3-7663d6e6c8b8de2d40e0ed9a6caf7361.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

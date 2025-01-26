@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://c8ai2qkydj4as"]
+
+[ext_resource type="AudioStream" uid="uid://bmkm7gxd2k3rc" path="res://Sound Effects/Weapons/Kiryu/I sing for you.mp3" id="1_fs47b"]
+[ext_resource type="Script" path="res://Resources/WeaponResource.gd" id="2_o12ep"]
+
+[resource]
+script = ExtResource("2_o12ep")
+type = 9
+ammo = ""
+cooldown = 0.2
+sway = 0.15
+ismelee = false
+automatic = false
+onehanded = true
+attack_sounds = Array[AudioStream]([ExtResource("1_fs47b")])
+dry_fire_sound = ExtResource("1_fs47b")
+damage = 0
+spread = 0.0
+max_ammo = 0
+projectile_amount = 1
+projectile_range = 40

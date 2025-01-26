@@ -161,7 +161,10 @@ const SPEAR = preload("res://Resources/Weapons/Spear.tres")
 const SWORD = preload("res://Resources/Weapons/Sword.tres")
 const WARHAMMER = preload("res://Resources/Weapons/Warhammer.tres")
 const UNARMED = preload("res://Resources/Weapons/Unarmed.tres")
+const KIRYU = preload("res://Resources/Weapons/Kiryu.tres")
 
+
+@onready var ammo_bar : ProgressBar = $AmmoBar
 var ammo : Dictionary = {
 	"melee": 1,
 	"bow":15,
@@ -169,7 +172,11 @@ var ammo : Dictionary = {
 	"sling":200,
 }
 
-#Variables for saving user data
+#Saving user profile (likely to be relocated to a main menu if I understand correctly)
+var config = ConfigFile.new()
+
+#Variables for pause menu
+@onready var pause_menu = $PauseMenu
 
 
 
@@ -182,11 +189,31 @@ func _ready():
 	lamp.hide()
 	damage_overlay.modulate = Color.TRANSPARENT
 	health_bar.init_health(health)
+
+#Saving player information such as stats, inventory and location - this has to be linked with player profile and will be done using persisted settings
+func _save():
+	pass
+
+#Creating player profile - requires changing later once I work on player profile creation, this is used for providing the load screen menu with information to the player about the save.
+func _create_profile():
+	#setting values to be stored in profile files
+	config.set_value("Profile1", "player_name", "Wolfe")
+	config.set_value("Profile1", "difficulty", 2)
+	config.set_value("Profile1", "game_time", 1430) #in seconds, convert to minutes/hours when loading
+	config.set_value("Profile1", "character_level", 2)
+	config.set_value("Profile1", "location", "Alt Clut")
+	config.set_value("Profile2", "player_name", "V3geta")
+	config.set_value("Profile2", "difficulty", 1)
+	config.set_value("Profile2", "game_time", 130) #in seconds, convert to minutes/hours when loading
+	config.set_value("Profile2", "character_level", 1)
+	config.set_value("Profile2", "location", "Newstead")
+
+# Saving user profiles to a file.
+	config.save("user://Player_profiles.cfg")
+	
+
 #Capturing Player input
 func _input(event):
-	if event.is_action_pressed("ui_cancel"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		
 	if event is InputEventMouseMotion:
 		var MouseEvent = event.relative *SENSITIVITY
 		CameraLook(MouseEvent)
@@ -227,7 +254,7 @@ func CameraLook(Movement: Vector2):
 func _physics_process(delta: float) -> void:
 	#Gun Logic - may be better to move this elsewhere?
 	if Input.is_action_just_pressed("inventory_slot_1"):
-		current_weapon = UNARMED
+		current_weapon = KIRYU
 	if Input.is_action_just_pressed("inventory_slot_2"):
 		current_weapon = SWORD
 	if Input.is_action_just_pressed("inventory_slot_3"):
@@ -294,6 +321,3 @@ func hurt(damage : float):
 	hurt_tween = create_tween()
 	hurt_tween.tween_property(damage_overlay, "modulate", Color.TRANSPARENT, 0.5)
 	
-	
-	
-#Player fire

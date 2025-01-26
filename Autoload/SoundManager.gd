@@ -46,6 +46,10 @@ const MELEE_SWING_3 = preload("res://Sound Effects/Weapons/Unarmed/melee_swing_3
 const AXE_SWING_1 = preload("res://Sound Effects/Weapons/Axe/axe_swing_1.mp3")
 const AXE_SWING_2 = preload("res://Sound Effects/Weapons/Axe/axe_swing_2.mp3")
 
+#Kiryu
+const I_SING_FOR_YOU = preload("res://Sound Effects/Weapons/Kiryu/I sing for you.mp3")
+
+
 var footstep_stone : Array[AudioStream] = [
 	STONE_FLOOR_1,
 	STONE_FLOOR_2,

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bmkm7gxd2k3rc"
+path="res://.godot/imported/I sing for you.mp3-39d26a5c12b2eb14b03e5f1a718e908f.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/Weapons/Kiryu/I sing for you.mp3"
+dest_files=["res://.godot/imported/I sing for you.mp3-39d26a5c12b2eb14b03e5f1a718e908f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

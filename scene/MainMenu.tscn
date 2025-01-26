@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgrotxnbe2g2e"]
+
+[ext_resource type="Script" path="res://scene/MainMenu.gd" id="1_iydfk"]
+[ext_resource type="Texture2D" uid="uid://bhgb12ru14yqu" path="res://Resources/Player/placeholder.png" id="2_yxpy0"]
+[ext_resource type="Texture2D" uid="uid://cuumhqllityhr" path="res://Resources/VisualScene/Sceneplaceholder.jpeg" id="3_fcyvu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lfpwy"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.7731, 16.2003)
+script = ExtResource("1_iydfk")
+
+[node name="MainMenuLayout" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 4.17056
+offset_top = 13.7035
+offset_right = 100.171
+offset_bottom = 149.703
+scale = Vector2(0.120089, 0.161007)
+
+[node name="NewGameButton" type="Button" parent="MainMenuLayout"]
+layout_mode = 2
+text = "New Game"
+
+[node name="LoadGameButton" type="Button" parent="MainMenuLayout"]
+layout_mode = 2
+text = "Load Game"
+
+[node name="SettingsButton" type="Button" parent="MainMenuLayout"]
+layout_mode = 2
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="MainMenuLayout"]
+layout_mode = 2
+text = "Exit"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+material = SubResource("ShaderMaterial_lfpwy")
+layout_mode = 0
+offset_left = 1.42494
+offset_top = -0.185182
+offset_right = 71.4249
+offset_bottom = 45.8148
+scale = Vector2(0.299404, 0.370168)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Votandia"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="MainMenuCharacter" type="Sprite2D" parent="."]
+position = Vector2(31.592, 20.6169)
+scale = Vector2(0.0409816, 0.0517774)
+texture = ExtResource("2_yxpy0")
+
+[node name="MainMenuBackground" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(19.8449, 19.8762)
+scale = Vector2(0.0209578, 0.0468985)
+texture = ExtResource("3_fcyvu")

@@ -21,7 +21,7 @@ shadow_offset = Vector2(0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eyqjr"]
 bg_color = Color(0.788995, 0.0158887, 0.545835, 1)
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
+[node name="CharacterBody3D" type="CharacterBody3D" groups=["Persist"]]
 
 [node name="MCModel1" parent="." instance=ExtResource("1_xkjre")]
 

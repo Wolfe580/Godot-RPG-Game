@@ -11,7 +11,8 @@ enum WeaponType {
 	SLING,
 	SPEAR,
 	WARHAMMER,
-	UNARMED
+	UNARMED,
+	KIRYU
 }
 
 #Setting variables for weapons

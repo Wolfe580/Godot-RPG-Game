@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://cacqvwr8ykrs2"]
+
+[ext_resource type="PackedScene" uid="uid://bdsd1vly3qm0f" path="res://scene/Game/Weapon/weapon_system.tscn" id="2_i4bkh"]
+
+[node name="HumanCharacter" type="CharacterBody3D" groups=["Persist"]]
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15592, 1.67593, -0.20013)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.314983, 0.0798335, -0.0699839)
+
+[node name="Hand" type="Node3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.289751, -0.19348, -0.945887)
+
+[node name="Projectile_RayCast3D" type="RayCast3D" parent="Head/Hand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.445671, -1.48245, 1.14602)
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Head/Hand"]
+
+[node name="CharacterLamp" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.747311, 0.664474, 0, -0.664474, 0.747311, 0.481701, 0.705527, -0.172166)
+spot_angle = 43.29
+
+[node name="WeaponSystem" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("2_i4bkh")]
+parent = NodePath("..")

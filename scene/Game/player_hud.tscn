@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=3 uid="uid://cgrgioqy6ecqb"]
+
+[ext_resource type="Texture2D" uid="uid://dk1i4qfg6t185" path="res://assets/PlayerDamage/Pain Hud.png" id="1_gvyrl"]
+[ext_resource type="Script" path="res://Scripts/Character/Health/health_bar.gd" id="2_gg3cr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y3nd2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sl3sk"]
+bg_color = Color(0, 0.701699, 0.565334, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rp4gm"]
+bg_color = Color(0.0383972, 0.0383972, 0.0383971, 1)
+shadow_color = Color(0, 0, 0, 0.27451)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3l5t"]
+bg_color = Color(0.788995, 0.0158887, 0.545835, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kk3er"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rw1ni"]
+bg_color = Color(0, 0.701699, 0.565334, 1)
+
+[node name="PlayerHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FirstPersonHurt" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.599995, 0.602372)
+texture = ExtResource("1_gvyrl")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -50.0
+offset_right = 43.0
+offset_bottom = -10.0
+grow_vertical = 0
+scale = Vector2(6.9519, 0.944176)
+theme_override_styles/background = SubResource("StyleBoxEmpty_y3nd2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_sl3sk")
+value = 100.0
+show_percentage = false
+script = ExtResource("2_gg3cr")
+
+[node name="DamageBar" type="ProgressBar" parent="HealthBar"]
+z_index = -1
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
+scale = Vector2(9.99008, 1.48663)
+theme_override_styles/background = SubResource("StyleBoxFlat_rp4gm")
+theme_override_styles/fill = SubResource("StyleBoxFlat_r3l5t")
+value = 100.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="HealthBar"]
+wait_time = 0.2
+one_shot = true
+
+[node name="AmmoBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 867.0
+offset_top = -50.9999
+offset_right = 907.0
+offset_bottom = -10.9999
+grow_vertical = 0
+scale = Vector2(6.9519, 0.944176)
+theme_override_styles/background = SubResource("StyleBoxEmpty_kk3er")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rw1ni")
+value = 100.0
+show_percentage = false
+
+[connection signal="timeout" from="HealthBar/Timer" to="HealthBar" method="_on_timer_timeout"]

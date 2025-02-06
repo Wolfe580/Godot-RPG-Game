@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Weapon" load_steps=6 format=3 uid="uid://8n2texpdg7ij"]
 
-[ext_resource type="Script" path="res://Resources/WeaponResource.gd" id="1_msmmp"]
+[ext_resource type="Script" path="res://Scripts/Game/Systems/Weapon/WeaponResource.gd" id="1_msmmp"]
 [ext_resource type="AudioStream" uid="uid://bhfrnspjnsw64" path="res://Sound Effects/Weapons/Unarmed/melee_swing_1.ogg" id="1_vk7r7"]
 [ext_resource type="AudioStream" uid="uid://tl7kvp8204ni" path="res://Sound Effects/Weapons/Unarmed/melee_swing_2.mp3" id="2_crn5g"]
 [ext_resource type="AudioStream" uid="uid://bxvl4n3rbttp7" path="res://Sound Effects/Weapons/Unarmed/melee_swing_3.mp3" id="3_l0ywf"]

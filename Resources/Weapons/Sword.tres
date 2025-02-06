@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Weapon" load_steps=5 format=3 uid="uid://cosnqq28ddkyg"]
 
-[ext_resource type="Script" path="res://Resources/WeaponResource.gd" id="1_b2o1c"]
+[ext_resource type="Script" path="res://Scripts/Game/Systems/Weapon/WeaponResource.gd" id="1_b2o1c"]
 [ext_resource type="AudioStream" uid="uid://dilycwosdlwer" path="res://Sound Effects/Weapons/Sword/sword_swing_1.mp3" id="1_qss0d"]
 [ext_resource type="AudioStream" uid="uid://tbfab7a5m65i" path="res://Sound Effects/Weapons/Sword/sword_swing_2.mp3" id="2_k7dsc"]
 [ext_resource type="AudioStream" uid="uid://c1o03e8ehtpvv" path="res://Sound Effects/Weapons/Sword/sword_swing_heavy.mp3" id="3_glswh"]

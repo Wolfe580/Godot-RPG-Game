@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://boifxe83oba47"]
 
 [ext_resource type="AudioStream" uid="uid://dk3uk4oq3sppv" path="res://Sound Effects/Weapons/Warhammer/Warhammer_swing_1.mp3" id="1_ny5lu"]
-[ext_resource type="Script" path="res://Resources/WeaponResource.gd" id="1_rxk7s"]
+[ext_resource type="Script" path="res://Scripts/Game/Systems/Weapon/WeaponResource.gd" id="1_rxk7s"]
 [ext_resource type="AudioStream" uid="uid://c6jcek52eywt6" path="res://Sound Effects/Weapons/Warhammer/Warhammer_swing_2.mp3" id="2_h0pe6"]
 
 [resource]

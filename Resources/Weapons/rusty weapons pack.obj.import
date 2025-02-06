@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dhmyoly35dd4t"
+path="res://.godot/imported/rusty weapons pack.obj-8aa3d4a8c560187ae78926d9c1f7a702.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rusty weapons pack.obj-8aa3d4a8c560187ae78926d9c1f7a702.mesh"]
+
+source_file="res://Resources/Weapons/rusty weapons pack.obj"
+dest_files=["res://.godot/imported/rusty weapons pack.obj-8aa3d4a8c560187ae78926d9c1f7a702.mesh", "res://.godot/imported/rusty weapons pack.obj-8aa3d4a8c560187ae78926d9c1f7a702.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

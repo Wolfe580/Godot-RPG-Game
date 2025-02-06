@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://bqnfyuq3vw6o3"]
 
 [ext_resource type="AudioStream" uid="uid://cfnja0kdfk7lg" path="res://Sound Effects/Weapons/Sling/sling_fire_1.mp3" id="1_hguek"]
-[ext_resource type="Script" path="res://Resources/WeaponResource.gd" id="1_i8j76"]
+[ext_resource type="Script" path="res://Scripts/Game/Systems/Weapon/WeaponResource.gd" id="1_i8j76"]
 
 [resource]
 script = ExtResource("1_i8j76")

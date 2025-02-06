@@ -1,0 +1,98 @@
+[gd_scene load_steps=13 format=3 uid="uid://dbsuk01oipfxr"]
+
+[ext_resource type="PackedScene" uid="uid://c0b4s1w0uwot4" path="res://scene/Character/NPC.tscn" id="1_1hb56"]
+[ext_resource type="Texture2D" uid="uid://dk1i4qfg6t185" path="res://assets/PlayerDamage/Pain Hud.png" id="2_r44fm"]
+[ext_resource type="Script" path="res://Scripts/Character/Health/health_bar.gd" id="3_edi8y"]
+[ext_resource type="PackedScene" uid="uid://bftkal7udc1ry" path="res://scene/Character/Character animation/Man_Idle.tscn" id="4_3xw61"]
+[ext_resource type="PackedScene" uid="uid://bxupunkhl4btl" path="res://scene/Character/Character animation/CharacterAnimations.tscn" id="4_kgfu7"]
+[ext_resource type="PackedScene" uid="uid://64cs6xkrk6q2" path="res://scene/Character/Character animation/Man_Walking.tscn" id="5_c1rhe"]
+[ext_resource type="PackedScene" uid="uid://cgb86xrkco4su" path="res://assets/Models/MCModel1.gltf" id="7_nbguy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_675k2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jitn7"]
+bg_color = Color(0, 0.701699, 0.565334, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w701i"]
+bg_color = Color(0.0383972, 0.0383972, 0.0383971, 1)
+shadow_color = Color(0, 0, 0, 0.27451)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eyqjr"]
+bg_color = Color(0.788995, 0.0158887, 0.545835, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rye1o"]
+radius = 14.7634
+height = 35.6206
+
+[node name="HumanCharacter" instance=ExtResource("1_1hb56")]
+
+[node name="FirstPersonHurt" type="TextureRect" parent="." index="2"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.599995, 0.602372)
+texture = ExtResource("2_r44fm")
+
+[node name="AmmoBar" type="ProgressBar" parent="." index="3"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 867.0
+offset_top = -50.9999
+offset_right = 907.0
+offset_bottom = -10.9999
+grow_vertical = 0
+scale = Vector2(6.9519, 0.944176)
+theme_override_styles/background = SubResource("StyleBoxEmpty_675k2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jitn7")
+value = 100.0
+show_percentage = false
+
+[node name="HealthBar" type="ProgressBar" parent="." index="4"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -50.0
+offset_right = 43.0
+offset_bottom = -10.0
+grow_vertical = 0
+scale = Vector2(6.9519, 0.944176)
+theme_override_styles/background = SubResource("StyleBoxEmpty_675k2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jitn7")
+value = 100.0
+show_percentage = false
+script = ExtResource("3_edi8y")
+
+[node name="DamageBar" type="ProgressBar" parent="HealthBar" index="0"]
+z_index = -1
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
+scale = Vector2(9.99008, 1.48663)
+theme_override_styles/background = SubResource("StyleBoxFlat_w701i")
+theme_override_styles/fill = SubResource("StyleBoxFlat_eyqjr")
+value = 100.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="HealthBar" index="1"]
+wait_time = 0.2
+one_shot = true
+
+[node name="AnimationTree" parent="." index="6" instance=ExtResource("4_kgfu7")]
+
+[node name="Idle" parent="." index="7" instance=ExtResource("4_3xw61")]
+transform = Transform3D(-0.999174, -0.000462609, 0.0406237, -0.000550045, 0.999998, -0.00214124, -0.0406226, -0.00216182, -0.999172, 0.140268, 0.199693, -0.00319222)
+visible = false
+
+[node name="Walking" parent="." index="8" instance=ExtResource("5_c1rhe")]
+transform = Transform3D(-0.98674, 0, 0.16231, 0, 1, 0, -0.16231, 0, -0.98674, 0.171023, 0.166169, 0.0218557)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="9"]
+transform = Transform3D(0.0366119, 0, 0, 0, 0.0617918, 0, 0, 0, 0.02565, -0.110222, 1.12085, -0.0617322)
+shape = SubResource("CapsuleShape3D_rye1o")
+
+[node name="MCModel1" parent="." index="10" instance=ExtResource("7_nbguy")]
+
+[connection signal="timeout" from="HealthBar/Timer" to="HealthBar" method="_on_timer_timeout"]

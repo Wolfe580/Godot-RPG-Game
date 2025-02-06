@@ -1,0 +1,50 @@
+[gd_scene load_steps=11 format=3 uid="uid://bgs2d0ny4wxfc"]
+
+[ext_resource type="Script" path="res://Scripts/Game/MainGame.gd" id="1_bc3jp"]
+[ext_resource type="PackedScene" uid="uid://bgmrm3isk5lle" path="res://scene/World/floor.tscn" id="2_7ma53"]
+[ext_resource type="PackedScene" uid="uid://bpv72ygnecvt0" path="res://scene/World/world_environment.tscn" id="3_suijf"]
+[ext_resource type="PackedScene" uid="uid://bb801seohbgi4" path="res://scene/World/boxes.tscn" id="4_gfcjq"]
+[ext_resource type="PackedScene" uid="uid://vnrbct18cj1m" path="res://scene/Character/player.tscn" id="5_h8r4o"]
+[ext_resource type="Script" path="res://Scripts/Character/Player.gd" id="6_yu0vf"]
+[ext_resource type="PackedScene" uid="uid://fovgioak1uvq" path="res://scene/Menu/PauseMenu.tscn" id="7_i162n"]
+[ext_resource type="Script" path="res://Scripts/Game/GameManager.gd" id="8_4gcax"]
+[ext_resource type="PackedScene" uid="uid://bgrotxnbe2g2e" path="res://scene/Menu/MainMenu.tscn" id="9_v1txv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4m74d"]
+albedo_color = Color(0.823529, 1, 1, 1)
+
+[node name="Game" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.637077, 0, 0)
+
+[node name="MainGame" type="Node3D" parent="."]
+script = ExtResource("1_bc3jp")
+
+[node name="Floor" parent="MainGame" instance=ExtResource("2_7ma53")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.179719, -0.498222, -7.31892)
+use_collision = true
+size = Vector3(11.4767, 0, 18.0616)
+material = SubResource("StandardMaterial3D_4m74d")
+
+[node name="Floor" parent="MainGame/Floor" instance=ExtResource("2_7ma53")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21033, -5.047, 11.3204)
+use_collision = true
+size = Vector3(11.4767, 0, 18.0616)
+material = SubResource("StandardMaterial3D_4m74d")
+
+[node name="WorldEnvironment" parent="MainGame" instance=ExtResource("3_suijf")]
+
+[node name="Boxes" parent="MainGame" instance=ExtResource("4_gfcjq")]
+transform = Transform3D(1.19871, 0, 0, 0, 1, 0, 0, 0, 1, 0.856154, 0.204896, -4.10933)
+
+[node name="Player" parent="MainGame" instance=ExtResource("5_h8r4o")]
+script = ExtResource("6_yu0vf")
+
+[node name="PauseMenu" parent="MainGame" instance=ExtResource("7_i162n")]
+process_mode = 2
+visible = false
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("8_4gcax")
+
+[node name="MainMenu" parent="." instance=ExtResource("9_v1txv")]
+process_mode = 2

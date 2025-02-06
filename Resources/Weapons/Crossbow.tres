@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://bqj0l057ln11w"]
 
-[ext_resource type="Script" path="res://Resources/WeaponResource.gd" id="1_nr67p"]
+[ext_resource type="Script" path="res://Scripts/Game/Systems/Weapon/WeaponResource.gd" id="1_nr67p"]
 [ext_resource type="AudioStream" uid="uid://bwg78rdkwkcdx" path="res://Sound Effects/Weapons/Crossbow/crossbow_firing_1.mp3" id="1_thsel"]
 
 [resource]

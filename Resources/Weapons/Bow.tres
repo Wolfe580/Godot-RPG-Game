@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Weapon" load_steps=5 format=3 uid="uid://dyrlva6hh5f5t"]
 
-[ext_resource type="Script" path="res://Resources/WeaponResource.gd" id="1_fkuo6"]
+[ext_resource type="Script" path="res://Scripts/Game/Systems/Weapon/WeaponResource.gd" id="1_fkuo6"]
 [ext_resource type="AudioStream" uid="uid://butpqfkwv7h5a" path="res://Sound Effects/Weapons/Bow/bow_firing_1.mp3" id="1_upos7"]
 [ext_resource type="AudioStream" uid="uid://bhw0ba4dgd0xu" path="res://Sound Effects/Weapons/Bow/bow_firing_2.mp3" id="2_xexmc"]
 [ext_resource type="AudioStream" uid="uid://cdjv33mv5j4t7" path="res://Sound Effects/Weapons/Bow/bow_firing_3.mp3" id="3_2hmsb"]

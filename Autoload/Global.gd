@@ -5,7 +5,7 @@ extends Node
 var PlayerRef: CharacterBody3D
 var WorldRef: Node3D
 
-const PROJECTILE_DECAL = preload("res://assets/Decals/projectile_decal.tscn")
+const PROJECTILE_DECAL = preload("res://scene/Game/Projectile/projectile_decal.tscn")
 
 #UI control
 #References

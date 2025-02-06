@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Weapon" load_steps=5 format=3 uid="uid://ben5tvlxdtfxk"]
 
 [ext_resource type="AudioStream" uid="uid://gmajpq02nbd5" path="res://Sound Effects/Weapons/Dagger/dagger_swing_1.mp3" id="1_e0t8n"]
-[ext_resource type="Script" path="res://Resources/WeaponResource.gd" id="1_f1v78"]
+[ext_resource type="Script" path="res://Scripts/Game/Systems/Weapon/WeaponResource.gd" id="1_f1v78"]
 [ext_resource type="AudioStream" uid="uid://dj6rgr8rnso6m" path="res://Sound Effects/Weapons/Dagger/dagger_swing_2.mp3" id="2_u07bm"]
 [ext_resource type="AudioStream" uid="uid://dl2oma45x03o" path="res://Sound Effects/Weapons/Dagger/dagger_swing_3.mp3" id="3_hb0kn"]
 

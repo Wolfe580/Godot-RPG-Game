@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://vnrbct18cj1m"]
+
+[ext_resource type="PackedScene" uid="uid://cacqvwr8ykrs2" path="res://scene/Character/HumanCharacter.tscn" id="1_mjir4"]
+[ext_resource type="ArrayMesh" uid="uid://c5fu1yym738e" path="res://assets/Models/HumanCharacter/PlayerCharacter.obj" id="2_twemx"]
+[ext_resource type="PackedScene" uid="uid://cgrgioqy6ecqb" path="res://scene/Game/player_hud.tscn" id="3_euo5w"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_854bw"]
+
+[node name="HumanCharacter" instance=ExtResource("1_mjir4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07772, 0)
+shape = SubResource("CapsuleShape3D_854bw")
+
+[node name="PlayerCharacter" type="MeshInstance3D" parent="." index="4"]
+transform = Transform3D(-0.0117422, 0, 0.000295789, 0, 0.0117459, 0, -0.000295789, 0, -0.0117422, 0.187004, -0.0237143, -0.014789)
+mesh = ExtResource("2_twemx")
+
+[node name="PlayerHUD" parent="." index="5" instance=ExtResource("3_euo5w")]

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bgmrm3isk5lle"]
+
+[node name="Floor" type="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.204691, -0.498222, -0.940286)
+size = Vector3(4.732, 0, 4.088)

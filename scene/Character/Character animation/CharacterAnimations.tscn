@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxupunkhl4btl"]
+
+[ext_resource type="PackedScene" uid="uid://bftkal7udc1ry" path="res://scene/Character/Character animation/Man_Idle.tscn" id="1_1wv7c"]
+[ext_resource type="PackedScene" uid="uid://64cs6xkrk6q2" path="res://scene/Character/Character animation/Man_Walking.tscn" id="2_yn3xi"]
+
+[node name="AnimationTree" type="AnimationTree"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Idle" parent="AnimationPlayer" instance=ExtResource("1_1wv7c")]
+transform = Transform3D(-0.999174, -0.000462609, 0.0406237, -0.000550045, 0.999998, -0.00214124, -0.0406226, -0.00216182, -0.999172, 0.140268, 0.199693, -0.00319222)
+visible = false
+
+[node name="Walking" parent="AnimationPlayer" instance=ExtResource("2_yn3xi")]
+transform = Transform3D(-0.98674, 0, 0.16231, 0, 1, 0, -0.16231, 0, -0.98674, 0.171023, 0.166169, 0.0218557)
+visible = false

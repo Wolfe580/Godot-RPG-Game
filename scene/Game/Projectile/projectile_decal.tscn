@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgb321difyxsc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yrck4"]
+albedo_color = Color(0.111197, 0.111197, 0.111197, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ocvck"]
+material = SubResource("StandardMaterial3D_yrck4")
+
+[node name="ProjectileDecal" type="Node3D" groups=["Decal"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -0.01)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_ocvck")

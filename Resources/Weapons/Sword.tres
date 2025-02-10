@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=5 format=3 uid="uid://cosnqq28ddkyg"]
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=5 format=3 uid="uid://cosnqq28ddkyg"]
 
 [ext_resource type="Script" path="res://Scripts/Game/Systems/Weapon/WeaponResource.gd" id="1_b2o1c"]
 [ext_resource type="AudioStream" uid="uid://dilycwosdlwer" path="res://Sound Effects/Weapons/Sword/sword_swing_1.mp3" id="1_qss0d"]
@@ -7,13 +7,18 @@
 
 [resource]
 script = ExtResource("1_b2o1c")
-type = 0
+weaponID = 0
+weaponName = ""
+weaponType = 0
 ammo = ""
+firerate = 0.0
 cooldown = 0.35
 sway = 0.15
 ismelee = true
 automatic = true
 onehanded = true
+weight = 0.0
+value = 0.0
 attack_sounds = Array[AudioStream]([ExtResource("1_qss0d"), ExtResource("2_k7dsc")])
 dry_fire_sound = ExtResource("3_glswh")
 damage = 20

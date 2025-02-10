@@ -1,5 +1,6 @@
 extends Node3D
 
+
 var profile_data: Dictionary
 @onready var Player = $Player
 

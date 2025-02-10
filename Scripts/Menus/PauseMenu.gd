@@ -1,6 +1,7 @@
 # PauseScreen.gd
 extends Control
 
+@onready var player: Player = $"../Player"
 @onready var game_manager = $"../../GameManager"
 @onready var save_button = $PauseMenuLayout/SaveGameButton
 
@@ -21,6 +22,7 @@ func _gui_input(event):
 
 func _on_resume_pressed():
 	print("Resume pressed")
+	player.showplayerHUD()
 	hide()  # Hide the pause screen
 	get_tree().paused = false  # Unpause the game
 	get_viewport().set_input_as_handled()

@@ -91,7 +91,7 @@ var max_perception: float = 10
 @export var blade_expert : bool = false
 @export var rogue : bool = false
 @export var bow_expert : bool = false
-@export var crossbow_mastery : bool = false
+@export var crossbow_master : bool = false
 #traits related to gathering in the world
 @export var woodsman : bool = false
 @export var farmer : bool = true
@@ -110,8 +110,8 @@ var max_perception: float = 10
 #Player Stats - Learned
 @export_category("Player Stats - Learned")
 #Learned stats related to weapons.
-@export var archery_bow : float = 0
-@export var archery_crossbow : float = 0
+@export var bow_mastery : float = 0
+@export var crossbow_mastery : float = 0
 @export var sword_mastery : float = 0
 @export var dagger_mastery : float = 0
 @export var spear_mastery : float = 0
@@ -137,14 +137,15 @@ var sling_mastery_min : float = -100
 var warhammer_mastery_min : float = -100
 var unarmed_mastery_min : float = -100
 
+
 #Player Reputation
 @export_category("Player Reputation")
-@export var player_reputation : float = 0
+@export var player_karma : float = 0
 @export var reputation_with_Rome : float = 0
 @export var reputation_with_Votandi : float = 0
 @export var reputation_with_Damnonii : float = 0
 #Max reputation values
-var player_reputation_max : float = 100
+var player_karma_max : float = 100
 var reputation_with_Rome_max : float = 100
 var reputation_with_Votandi_max : float = 100
 var reputation_with_Damnonii_max : float = 100
@@ -161,7 +162,7 @@ var reputation_with_Damnonii_min : float = -100
 #Player Weapons
 @export_category("Player Weapon")
 @onready var projectile_raycast: RayCast3D = $Head/Hand/Projectile_RayCast3D
-@export var current_weapon : Weapon = UNARMED
+@export var current_weapon : WeaponResource = UNARMED
 var can_attack: bool = true
 var is_reloading: bool= false
 var current_ammo: int = current_weapon.max_ammo
@@ -189,8 +190,6 @@ var config = ConfigFile.new()
 
 #Variables for pause menu
 @onready var pause_menu = $"../PauseMenu"
-
-
 
 
 #Functions
@@ -230,7 +229,52 @@ func _physics_process(delta: float) -> void:
 	#Gun Logic - may be better to move this elsewhere?
 	pass
 
+#Calculating whether or not the player has obtained certain traits related to their learned skills
+func calc_player_traits():
+	pass
+
+func update_stats():
+	bow_mastery = Utils.clamp_value(bow_mastery, archery_bow_min, archery_bow_max)
+	crossbow_mastery = Utils.clamp_value(crossbow_mastery, archery_crossbow_min, archery_crossbow_max)
+	sword_mastery = Utils.clamp_value(sword_mastery, sword_mastery_min, sword_mastery_max)
+	dagger_mastery = Utils.clamp_value(dagger_mastery, dagger_mastery_min, dagger_mastery_max)
+	spear_mastery = Utils.clamp_value(spear_mastery, spear_mastery_min, spear_mastery_max)
+	sling_mastery = Utils.clamp_value(sling_mastery, sling_mastery_min, sling_mastery_max)
+	warhammer_mastery = Utils.clamp_value(warhammer_mastery, warhammer_mastery_min, warhammer_mastery_max)
+	unarmed_mastery = Utils.clamp_value(unarmed_mastery, unarmed_mastery_min, unarmed_mastery_max)
 	
+func increase_bow_mastery(amount: float):
+	bow_mastery += amount
+	update_stats()
+
+func increase_crossbow_mastery(amount: float):
+	crossbow_mastery += amount
+	update_stats()
+	
+func increase_sword_mastery(amount: float):
+	sword_mastery += amount
+	update_stats()
+
+func increase_dagger_mastery(amount: float):
+	dagger_mastery += amount
+	update_stats()
+
+func increase_spear_mastery(amount: float):
+	spear_mastery += amount
+	update_stats()
+
+func increase_sling_mastery(amount: float):
+	sling_mastery += amount
+	update_stats()
+
+func increase_warhammer_mastery(amount: float):
+	warhammer_mastery += amount
+	update_stats()
+
+func increase_unarmed_mastery(amount: float):
+	unarmed_mastery += amount
+	update_stats()
+
 ##Animations
 #func handle_animations(direction:Vector3):
 #	if direction != Vector3.ZERO:

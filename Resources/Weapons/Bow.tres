@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=5 format=3 uid="uid://dyrlva6hh5f5t"]
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=5 format=3 uid="uid://dyrlva6hh5f5t"]
 
 [ext_resource type="Script" path="res://Scripts/Game/Systems/Weapon/WeaponResource.gd" id="1_fkuo6"]
 [ext_resource type="AudioStream" uid="uid://butpqfkwv7h5a" path="res://Sound Effects/Weapons/Bow/bow_firing_1.mp3" id="1_upos7"]
@@ -7,13 +7,18 @@
 
 [resource]
 script = ExtResource("1_fkuo6")
-type = 3
+weaponID = 0
+weaponName = ""
+weaponType = 0
 ammo = "10"
+firerate = 0.0
 cooldown = 0.2
 sway = 0.15
 ismelee = false
 automatic = false
 onehanded = false
+weight = 0.0
+value = 0.0
 attack_sounds = Array[AudioStream]([ExtResource("1_upos7"), ExtResource("2_xexmc"), ExtResource("3_2hmsb")])
 dry_fire_sound = ExtResource("2_xexmc")
 damage = 30

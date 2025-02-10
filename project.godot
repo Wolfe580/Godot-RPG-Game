@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 Global="*res://Autoload/Global.gd"
 GameSettings="*res://Autoload/GameSettings.gd"
 SoundManager="*res://Autoload/SoundManager.gd"
+GlobalInventorySystem="*res://Autoload/InventorySystem.gd"
+UUID="*res://Autoload/UUID.gd"
+SaveManager="*res://Autoload/SaveManager.gd"
+Utils="*res://Autoload/Utils.gd"
 
 [file_customization]
 

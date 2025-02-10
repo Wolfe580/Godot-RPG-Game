@@ -9,8 +9,9 @@ class_name Player
 
 
 func ready():
-	damage_overlay.modulate = Color.TRANSPARENT
 	health_bar.init_health(health)
+	damage_overlay.modulate = Color.TRANSPARENT
+	
 
 func showplayerHUD():
 	profilehud.show()
@@ -32,6 +33,7 @@ func hurt(damage : float):
 		hurt_tween.kill()
 	hurt_tween = create_tween()
 	hurt_tween.tween_property(damage_overlay, "modulate", Color.TRANSPARENT, 0.5)
+	
 #Capturing Player input
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -106,3 +108,110 @@ func _physics_process(delta: float) -> void:
 		if veldiff > fall_damage_threshold:
 			hurt(veldiff - fall_damage_threshold)
 	old_vel=velocity.y
+
+var player_stats : Dictionary = {
+	"health": health,
+	"level": level,
+	"strength": strength,
+	"charisma": charisma,
+	"literacy": literacy,
+	"endurance": endurance,
+	"dexterity": dexterity,
+	"perception": perception,
+	"archery_bow": bow_mastery,
+	"archery_crossbow": crossbow_mastery,
+	"sword_mastery": sword_mastery,
+	"dagger_mastery": dagger_mastery,
+	"spear_mastery": spear_mastery,
+	"sling_mastery": sling_mastery,
+	"warhammer_mastery": warhammer_mastery,
+	"unarmed_mastery": unarmed_mastery,
+	"player_karma": player_karma,
+	"reputation_with_Rome": reputation_with_Rome,
+	"reputation_with_Votandi": reputation_with_Votandi,
+	"reputation_with_Damnonii": reputation_with_Damnonii,
+}
+var player_traits : Dictionary= {
+	"battle_hardened" : battle_hardened,
+	"fists_of_fury" : fists_of_fury,
+	"slinger" : slinger,
+	"john_warhammer" : john_warhammer,
+	"blade_expert" : blade_expert,
+	"rogue" : rogue,
+	"bow_expert" : bow_expert,
+	"crossbow_master" : crossbow_master,
+	"woodsman" : woodsman,
+	"farmer" : farmer,
+	"fisherman" : fisherman,
+	"animal_tamer" : animal_tamer,
+	"miner" : miner,
+}
+
+var player_reputation : Dictionary= {
+		"player_karma": player_karma,
+	"reputation_with_Rome": reputation_with_Rome,
+	"reputation_with_Votandi": reputation_with_Votandi,
+	"reputation_with_Damnonii": reputation_with_Damnonii,
+}
+var player_inventory : Dictionary= {
+	
+}
+
+
+func get_player_data() -> Dictionary:
+	return {
+		"position": global_transform.origin,
+		"stats": player_stats,
+		"traits": player_traits,
+		"reputation": player_reputation,
+		"inventory": player_inventory
+	}
+
+# Update player stats from a dictionary
+func update_stats_from_save(stats: Dictionary) -> void:
+	health = stats.get("health", health)
+	level = stats.get("level", level)
+	strength = stats.get("strength", strength)
+	charisma = stats.get("charisma", charisma)
+	literacy = stats.get("literacy", literacy)
+	endurance = stats.get("endurance", endurance)
+	dexterity = stats.get("dexterity", dexterity)
+	perception = stats.get("perception", perception)
+
+# Update player traits from a dictionary
+func update_traits_from_save(traits: Dictionary) -> void:
+	battle_hardened = traits.get("battle_hardened", battle_hardened)
+	fists_of_fury = traits.get("fists_of_fury", fists_of_fury)
+	slinger = traits.get("slinger", slinger)
+	john_warhammer = traits.get("john_warhammer", john_warhammer)
+	blade_expert = traits.get("blade_expert", blade_expert)
+	rogue = traits.get("rogue", rogue)
+	bow_expert = traits.get("bow_expert", bow_expert)
+	crossbow_mastery = traits.get("crossbow_mastery", crossbow_mastery)
+
+# Update player reputation from a dictionary
+func update_reputation_from_save(reputation: Dictionary) -> void:
+	player_reputation = reputation.get("player_reputation", player_reputation)
+	reputation_with_Rome = reputation.get("reputation_with_Rome", reputation_with_Rome)
+	reputation_with_Votandi = reputation.get("reputation_with_Votandi", reputation_with_Votandi)
+	reputation_with_Damnonii = reputation.get("reputation_with_Damnonii", reputation_with_Damnonii)
+
+# Update player inventory from a dictionary
+func update_inventory_from_save(inventory: Dictionary) -> void:
+	ammo = inventory.get("ammo", ammo)
+	# Add more inventory items here as needed
+
+func save_game():
+	var player_data = get_player_data()
+	var world_data = {}  # Add world data here
+	var entities_data = []  # Add entities data here
+	SaveManager.save_game(player_data, world_data, entities_data)
+
+func load_game():
+	var save_data = SaveManager.load_game()
+	if save_data:
+		global_transform.origin = save_data["player"].get("position", Vector3())
+		update_stats_from_save(save_data["player"].get("stats", {}))
+		update_traits_from_save(save_data["player"].get("traits", {}))
+		update_reputation_from_save(save_data["player"].get("reputation", {}))
+		update_inventory_from_save(save_data["player"].get("inventory", {}))

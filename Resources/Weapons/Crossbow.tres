@@ -1,17 +1,22 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://bqj0l057ln11w"]
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://bqj0l057ln11w"]
 
 [ext_resource type="Script" path="res://Scripts/Game/Systems/Weapon/WeaponResource.gd" id="1_nr67p"]
 [ext_resource type="AudioStream" uid="uid://bwg78rdkwkcdx" path="res://Sound Effects/Weapons/Crossbow/crossbow_firing_1.mp3" id="1_thsel"]
 
 [resource]
 script = ExtResource("1_nr67p")
-type = 4
+weaponID = 0
+weaponName = ""
+weaponType = 0
 ammo = "1"
+firerate = 0.0
 cooldown = 0.5
 sway = 0.15
 ismelee = false
 automatic = false
 onehanded = false
+weight = 0.0
+value = 0.0
 attack_sounds = Array[AudioStream]([ExtResource("1_thsel")])
 dry_fire_sound = ExtResource("1_thsel")
 damage = 60

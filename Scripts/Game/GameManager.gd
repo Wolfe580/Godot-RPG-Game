@@ -1,6 +1,9 @@
 # GameManager.gd
 extends Node
 
+const uuid_util = preload("res://Autoload/UUID.gd")
+
+
 ##References to other screens
 @onready var player: Player = $"../MainGame/Player"  
 @onready var pause_menu : Control = $"../MainGame/PauseMenu" 
@@ -15,7 +18,7 @@ func _ready():
 	player.hideplayerHUD()
 	pause_menu.hide()  # Ensure the pause menu is hidden at the start
 	main_menu.show() #Load the main menu.
-#setting values to be stored in profile files
+	print(uuid_util.v4())#setting values to be stored in profile files
 
 func _createprofile():
 	config.set_value("Profile1", "player_name", "Wolfe")

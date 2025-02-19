@@ -12,6 +12,8 @@ extends Resource
 @export var icon: Texture2D
 
 # Extra properties for equipment
+@export var weapon_data: WeaponResource
+#@export var apparel_data: 
 @export var equippable: bool = false
 @export var equipped: bool = false
 

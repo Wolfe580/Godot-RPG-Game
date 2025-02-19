@@ -107,8 +107,7 @@ func fire_weapon() -> bool:
 	
 	# Emit signals for game systems to use
 	emit_signal("weapon_fired", damage, accuracy)
-	
-	# Optional: Check for weapon breakdown
+
 	if current_weapon.condition <= 0:
 		_handle_weapon_breakdown()
 
@@ -126,21 +125,19 @@ func reload_weapon() -> void:
 	emit_signal("weapon_reloaded")
 
 func _calculate_accuracy() -> float:
-	# Complex accuracy calculation based on weapon condition, type, etc.
 	var base_accuracy = 1.0
 	var condition_factor = current_weapon.condition / 100.0
 	return base_accuracy * condition_factor
 
 func _handle_weapon_breakdown() -> void:
 	emit_signal("weapon_degraded", current_weapon.condition)
-	# Optionally disable the weapon or trigger a replacement
 
 # Factory method to create weapon instances
 static func create_weapon_instance(weapon_resource: WeaponResource) -> WeaponInstance:
 	var instance = WeaponInstance.new()
 	instance.weapon_resource = weapon_resource
 	instance.current_ammo = weapon_resource.max_ammo
-	instance.unique_id = UUID.v4()  # Assuming you have a UUID generator
+	instance.unique_id = UUID.v4()
 	return instance
 
 func _on_cooldown_timer_timeout() -> void:

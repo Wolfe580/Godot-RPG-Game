@@ -2,7 +2,7 @@ extends CharacterBody3D
 class_name GameCharacter
 
 signal hit
-const WeaponSystem = preload("res://Scripts/Game/Systems/Weapon/weaponsystem.gd")
+const WeaponSystem = preload("res://Scripts/Game/Systems/Weapon/WeaponSystem.gd")
 
 #Character animations
 #@onready var animation_player=$"../../AnimationTree/AnimationPlayer"

@@ -1,9 +1,26 @@
-[gd_scene format=3 uid="uid://chkktr8glc4le"]
+[gd_scene load_steps=2 format=3 uid="uid://chkktr8glc4le"]
 
-[node name="MapMenu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="PackedScene" uid="uid://d0nf6l4rdhec" path="res://scene/Menu/player_menus.tscn" id="1_qjvio"]
+
+[node name="PlayerMenus" instance=ExtResource("1_qjvio")]
+
+[node name="InventoryButton" parent="." index="1"]
+offset_left = 355.0
+offset_top = 11.0
+offset_right = 452.0
+offset_bottom = 47.0
+
+[node name="MapButton" parent="." index="2"]
+offset_left = 961.0
+offset_top = 8.0
+offset_right = 1058.0
+offset_bottom = 44.0
+
+[node name="JournalButton" parent="." index="3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.059
+offset_left = 656.0
+offset_top = 8.0
+offset_right = 708.032
+offset_bottom = 43.0

@@ -46,3 +46,51 @@ text = "Load"
 [node name="ExitGameButton" type="Button" parent="PauseMenuLayout"]
 layout_mode = 2
 text = "Exit"
+
+[node name="PauseMenuSave" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 10.3272
+offset_top = 10.3429
+offset_right = 71.3272
+offset_bottom = 146.343
+scale = Vector2(0.312188, 0.19884)
+
+[node name="SaveSlot1" type="Button" parent="PauseMenuSave"]
+layout_mode = 2
+text = "Slot 1"
+
+[node name="SaveSlot2" type="Button" parent="PauseMenuSave"]
+layout_mode = 2
+text = "Slot 2"
+
+[node name="SaveSlot3" type="Button" parent="PauseMenuSave"]
+layout_mode = 2
+text = "Slot 3"
+
+[node name="Return" type="Button" parent="PauseMenuSave"]
+layout_mode = 2
+text = "Return"
+
+[node name="PauseMenuLoad" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 10.3272
+offset_top = 10.3429
+offset_right = 71.3272
+offset_bottom = 146.343
+scale = Vector2(0.312188, 0.19884)
+
+[node name="LoadSlot1" type="Button" parent="PauseMenuLoad"]
+layout_mode = 2
+text = "Slot 1"
+
+[node name="LoadSlot2" type="Button" parent="PauseMenuLoad"]
+layout_mode = 2
+text = "Slot 2"
+
+[node name="LoadSlot3" type="Button" parent="PauseMenuLoad"]
+layout_mode = 2
+text = "Slot 3"
+
+[node name="ReturnLoad" type="Button" parent="PauseMenuLoad"]
+layout_mode = 2
+text = "Return"

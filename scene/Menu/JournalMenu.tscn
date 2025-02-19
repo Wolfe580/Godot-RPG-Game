@@ -1,0 +1,75 @@
+[gd_scene load_steps=2 format=3 uid="uid://b41h3ue2e3rjd"]
+
+[ext_resource type="PackedScene" uid="uid://d0nf6l4rdhec" path="res://scene/Menu/player_menus.tscn" id="1_dqoof"]
+
+[node name="PlayerMenus" instance=ExtResource("1_dqoof")]
+
+[node name="InventoryButton" parent="." index="1"]
+offset_left = 320.0
+offset_top = 8.0
+offset_right = 417.0
+offset_bottom = 44.0
+
+[node name="MapButton" parent="." index="2"]
+offset_left = 932.0
+offset_top = 6.0
+offset_right = 1029.0
+offset_bottom = 42.0
+
+[node name="JournalButton" parent="." index="3"]
+offset_left = 656.0
+offset_top = 8.0
+offset_right = 776.0
+offset_bottom = 43.0
+
+[node name="RelationsButton" type="MenuButton" parent="PlayerDataPanel" index="0"]
+layout_mode = 0
+offset_left = 486.0
+offset_top = 3.0
+offset_right = 599.0
+offset_bottom = 39.0
+text = "Relations of Interest
+"
+
+[node name="JournalContent" type="ItemList" parent="PlayerDataPanel" index="1"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 43.0
+offset_right = 1100.0
+offset_bottom = 548.0
+select_mode = 1
+max_columns = 8
+
+[node name="QuestButton" type="MenuButton" parent="PlayerDataPanel" index="2"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 8.0
+offset_right = 125.0
+offset_bottom = 44.0
+text = "Quests
+"
+
+[node name="PlayerRepButton" type="MenuButton" parent="PlayerDataPanel" index="3"]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 6.0
+offset_right = 352.0
+offset_bottom = 42.0
+text = "Reputation"
+
+[node name="NotesButton" type="MenuButton" parent="PlayerDataPanel" index="4"]
+layout_mode = 0
+offset_left = 918.0
+offset_top = 7.0
+offset_right = 1015.0
+offset_bottom = 43.0
+text = "Notes"
+
+[node name="BooksButton" type="MenuButton" parent="PlayerDataPanel" index="5"]
+layout_mode = 0
+offset_left = 720.0
+offset_top = 4.0
+offset_right = 832.0
+offset_bottom = 40.0
+text = "???
+"

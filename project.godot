@@ -17,13 +17,13 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://Autoload/Global.gd"
 GameSettings="*res://Autoload/GameSettings.gd"
-SoundManager="*res://Autoload/SoundManager.gd"
-GlobalInventorySystem="*res://Autoload/InventorySystem.gd"
-UUID="*res://Autoload/UUID.gd"
 SaveManager="*res://Autoload/SaveManager.gd"
+SoundManager="*res://Autoload/SoundManager.gd"
+UUID="*res://Autoload/UUID.gd"
 Utils="*res://Autoload/Utils.gd"
+Global="*res://Autoload/Global.gd"
+GlobalInventorySystem="*res://Autoload/InventorySystem.gd"
 
 [file_customization]
 

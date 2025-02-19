@@ -1,0 +1,120 @@
+[gd_scene load_steps=2 format=3 uid="uid://fjiu080qpq3s"]
+
+[ext_resource type="PackedScene" uid="uid://d0nf6l4rdhec" path="res://scene/Menu/player_menus.tscn" id="1_s3wrm"]
+
+[node name="PlayerMenus" instance=ExtResource("1_s3wrm")]
+
+[node name="InventoryButton" parent="." index="1"]
+offset_left = 337.0
+offset_top = 2.0
+offset_right = 420.0
+offset_bottom = 51.0
+button_pressed = true
+keep_pressed_outside = true
+
+[node name="MapButton" parent="." index="2"]
+offset_left = 903.0
+offset_top = 7.0
+offset_right = 1000.0
+offset_bottom = 43.0
+
+[node name="JournalButton" parent="." index="3"]
+offset_left = 584.0
+offset_top = 9.0
+offset_right = 704.0
+offset_bottom = 44.0
+
+[node name="Consumables" type="MenuButton" parent="PlayerDataPanel" index="0"]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 4.0
+offset_right = 601.0
+offset_bottom = 40.0
+text = "Consumables"
+
+[node name="InventoryList" type="ItemList" parent="PlayerDataPanel" index="1"]
+layout_mode = 0
+offset_top = 52.0
+offset_right = 518.0
+offset_bottom = 549.0
+select_mode = 1
+item_count = 1
+max_columns = 8
+item_0/text = "Test"
+
+[node name="WeaponsButton" type="MenuButton" parent="PlayerDataPanel" index="2"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 9.0
+offset_right = 127.0
+offset_bottom = 45.0
+text = "Weapons
+"
+
+[node name="ClothingButton" type="MenuButton" parent="PlayerDataPanel" index="3"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 7.0
+offset_right = 354.0
+offset_bottom = 43.0
+text = "Clothing"
+
+[node name="MiscButton" type="MenuButton" parent="PlayerDataPanel" index="4"]
+layout_mode = 0
+offset_left = 920.0
+offset_top = 8.0
+offset_right = 1017.0
+offset_bottom = 44.0
+text = "Misc."
+
+[node name="BooksButton" type="MenuButton" parent="PlayerDataPanel" index="5"]
+layout_mode = 0
+offset_left = 722.0
+offset_top = 5.0
+offset_right = 819.0
+offset_bottom = 41.0
+text = "Books/Scrolls"
+
+[node name="ItemList4" type="ItemList" parent="PlayerDataPanel" index="6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.022
+anchor_bottom = 0.037
+offset_left = 515.0
+offset_top = 351.0
+offset_right = 1075.8
+offset_bottom = 395.613
+item_count = 1
+item_0/text = "Weight, value, etc"
+
+[node name="ItemList5" type="ItemList" parent="PlayerDataPanel" index="7"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.022
+anchor_bottom = 0.037
+offset_left = 513.0
+offset_top = 418.0
+offset_right = 1073.8
+offset_bottom = 462.613
+item_count = 1
+item_0/text = "Condition, Type"
+
+[node name="ItemList6" type="ItemList" parent="PlayerDataPanel" index="8"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.022
+anchor_bottom = 0.037
+offset_left = 516.0
+offset_top = 484.0
+offset_right = 1076.8
+offset_bottom = 528.613
+item_count = 1
+item_0/text = "Modifiers"
+
+[node name="InventoryItemDisplay" type="Panel" parent="PlayerDataPanel" index="9"]
+layout_mode = 0
+offset_left = 539.0
+offset_top = 62.0
+offset_right = 1085.0
+offset_bottom = 339.0
+tooltip_text = "Image of item"

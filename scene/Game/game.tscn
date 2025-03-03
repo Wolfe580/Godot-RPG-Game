@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bgs2d0ny4wxfc"]
+[gd_scene load_steps=15 format=3 uid="uid://bgs2d0ny4wxfc"]
 
 [ext_resource type="Script" path="res://Scripts/Game/MainGame.gd" id="1_bc3jp"]
 [ext_resource type="PackedScene" uid="uid://bgmrm3isk5lle" path="res://scene/World/floor.tscn" id="2_7ma53"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Scripts/Game/Systems/Weapon/WeaponResource.gd" id="8_0pr7c"]
 [ext_resource type="Script" path="res://Scripts/Game/GameManager.gd" id="8_4gcax"]
 [ext_resource type="PackedScene" uid="uid://bgrotxnbe2g2e" path="res://scene/Menu/MainMenu.tscn" id="9_v1txv"]
+[ext_resource type="Script" path="res://scene/Game/game_initialisation.gd" id="12_akptu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4m74d"]
 albedo_color = Color(0.823529, 1, 1, 1)
@@ -60,7 +61,7 @@ material = SubResource("StandardMaterial3D_4m74d")
 [node name="Boxes" parent="MainGame" instance=ExtResource("4_gfcjq")]
 transform = Transform3D(1.19871, 0, 0, 0, 1, 0, 0, 0, 1, 0.856154, 0.204896, -4.10933)
 
-[node name="Player" parent="MainGame" instance=ExtResource("5_h8r4o")]
+[node name="Player" parent="MainGame" groups=["player"] instance=ExtResource("5_h8r4o")]
 script = ExtResource("6_yu0vf")
 fall_damage_threshold = 5
 current_weapon = SubResource("Resource_vh8s5")
@@ -75,4 +76,5 @@ script = ExtResource("8_4gcax")
 [node name="MainMenu" parent="." instance=ExtResource("9_v1txv")]
 process_mode = 2
 
-[node name="Node" type="Node" parent="."]
+[node name="GameInitialisation" type="Node" parent="."]
+script = ExtResource("12_akptu")

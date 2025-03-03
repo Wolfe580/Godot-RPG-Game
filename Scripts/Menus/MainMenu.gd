@@ -30,11 +30,15 @@ extends Control
 @onready var new_game_manager = $NewGameManager
 @onready var character_creation_menu = $CharacterCreation  # Add this UI if you want character customization
 
-
 func _ready() -> void:
 	setup_menu_visibility()
 	connect_buttons()
 	#update_save_slots()
+
+func reset_main_menu() -> void:
+	MainMenuLayout.show()
+	_on_loadslotreturn_pressed()
+	#_on_settingsreturn_pressed() - Not yet implemented
 
 func setup_menu_visibility():
 	MainMenuLayout.show()
@@ -93,8 +97,6 @@ func connect_buttons():
 func update_save_slots():
 	for slot in range(1, 4):
 		var metadata = save_manager.get_save_metadata(slot)
-		print("USS metadata:")
-		print(metadata)
 		var slot_button = get_node("MainMenuLoad/LoadSlot%dButton" % slot)
 		
 		if metadata != null and metadata.size() > 0:
@@ -105,9 +107,9 @@ func update_save_slots():
 				datetime.hour, datetime.minute
 			]
 			
-			var custom_metadata = metadata.get("custom_metadata", {})
-			var level = custom_metadata.get("level", 1)
-			var location = custom_metadata.get("location", "Unknown")
+			# Get level and location directly from metadata since they're not in custom_metadata
+			var level = metadata.get("character_level", 1)
+			var location = metadata.get("location", "Unknown")
 			
 			slot_button.text = "Level %d - %s\n%s" % [level, location, date_string]
 			slot_button.disabled = false
@@ -149,7 +151,4 @@ func _on_exit_pressed():
 
 func _on_loadslotreturn_pressed():
 	MainMenuLoad.hide()
-	MainMenuLayout.show()
-
-func _on_NGslotreturn_pressed():
 	MainMenuLayout.show()

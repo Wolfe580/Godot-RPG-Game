@@ -180,6 +180,29 @@ func _on_player_level_up(new_level: int):
 	# Save game on level up
 	save_game()
 
+func update_slots():
+	for slot in range(1, 4):
+		var metadata = save_manager.get_save_metadata(slot)
+		var slot_button = get_node("MainMenuLoad/LoadSlot%dButton" % slot)
+		
+		if metadata != null and metadata.size() > 0:
+			var timestamp = metadata.get("timestamp", 0)
+			var datetime = Time.get_datetime_dict_from_unix_time(timestamp)
+			var date_string = "%d/%d/%d %02d:%02d" % [
+				datetime.month, datetime.day, datetime.year,
+				datetime.hour, datetime.minute
+			]
+			
+			var custom_metadata = metadata.get("custom_metadata", {})
+			var level = custom_metadata.get("level", 1)
+			var location = custom_metadata.get("location", "Unknown")
+			
+			slot_button.text = "Level %d - %s\n%s" % [level, location, date_string]
+			slot_button.disabled = false
+		else:
+			slot_button.text = "Empty Save Slot"
+			slot_button.disabled = true
+
 # Input handling
 func _unhandled_input(event):
 	if event.is_action_pressed("quick_save"):

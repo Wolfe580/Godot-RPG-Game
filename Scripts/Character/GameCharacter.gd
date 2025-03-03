@@ -73,7 +73,13 @@ var isdead: bool = false
 @export var endurance: float = 0
 @export var dexterity: float = 0
 @export var perception: float = 0
+@export var intelligence: float = 0
+@export var wisdom: float = 0
+@export var constitution: float = 0
 var max_level: float = 100
+var max_constitution = 10
+var max_intelligence: float = 10
+var max_wisdom: float = 10
 var max_strength : float = 10
 var max_charisma : float = 10
 var max_literacy: float = 10
@@ -176,7 +182,6 @@ const SPEAR = preload("res://Resources/Weapons/Spear.tres")
 const SWORD = preload("res://Resources/Weapons/Sword.tres")
 const WARHAMMER = preload("res://Resources/Weapons/Warhammer.tres")
 const UNARMED = preload("res://Resources/Weapons/Unarmed.tres")
-const KIRYU = preload("res://Resources/Weapons/Kiryu.tres")
 
 var ammo : Dictionary = {
 	"melee": 1,
